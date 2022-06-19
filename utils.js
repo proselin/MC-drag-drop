@@ -41,6 +41,12 @@ var utils = {
 		return utils.distanceXY(x,y,rect.x, rect.y) < rect.edge *  Math.sqrt(2)
 	},
 
+	cursorInRect(mouseX, mouseY, rectX, rectY, rectW, rectH){
+		let xLine = mouseX > rectX && mouseX < rectX + rectW
+		let yLine = mouseY > rectY && mouseY < rectY + rectH
+	
+		return xLine && yLine
+	},
 
 	pointInRect: function(x, y, rect) {
 		console.log(utils.inRange(x, rect.x, rect.x + rect.width));

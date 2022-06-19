@@ -26,14 +26,22 @@ window.onload = function() {
 	}
 
 	document.body.addEventListener("mousedown", function(event) {
-		console.log(utils.rectPointCollision(event.clientX, event.clientY, handle));
-		if(utils.pointInRect(event.clientX, event.clientY, handle)) {
+		console.log(utils.pointInRect(event.clientX, event.clientY, handle));
+		// if(utils.rectPointCollision(event.clientX, event.clientY, handle)) {
+		// 	document.body.addEventListener("mousemove", onMouseMove);
+		// 	document.body.addEventListener("mouseup", onMouseUp);
+		// 	console.log(handle.x,  handle.y);
+		// 	console.log(event.clientX,  event.clientY);
+		// 	offset.x = event.clientX - handle.x + handle.edge/12;
+		// 	offset.y = event.clientY - handle.y  + handle.edge/12;
+		// }
+		if(utils.cursorInRect(event.clientX, event.clientY, handle.x, handle.y, handle.width , handle.height)) {
 			document.body.addEventListener("mousemove", onMouseMove);
 			document.body.addEventListener("mouseup", onMouseUp);
 			console.log(handle.x,  handle.y);
 			console.log(event.clientX,  event.clientY);
-			offset.x = (event.clientX - handle.x)/2;
-			offset.y = (event.clientY - handle.y)/2;
+			offset.x = event.clientX - handle.x + handle.edge/12;
+			offset.y = event.clientY - handle.y  + handle.edge/12;
 		}
 	});
 
